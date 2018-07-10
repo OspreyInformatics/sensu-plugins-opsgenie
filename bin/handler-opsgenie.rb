@@ -127,8 +127,8 @@ class Opsgenie < Sensu::Handler
                      description: description,
                      entity:      client_name,
                      tags:        tags,
-                     recipients:  json_config['recipients'],
-                     teams:       json_config['teams'])
+                     responders:  json_config['responders']
+                     )
   end
 
   def event_priority
@@ -183,7 +183,7 @@ class Opsgenie < Sensu::Handler
       puts "Message: #{params[:message]}"
       puts "Tags: #{params[:tags]}"
       puts "Entity: #{params[:entity]}"
-      puts "Teams: #{params[:teams]}"
+      puts "Responders: #{params[:responders]}"
       puts "Alias: #{params[:alias]}"
       puts "Description: #{params[:description]}"
     end

@@ -19,11 +19,16 @@
 {
   "opsgenie": {
     "customerKey": "the-key",
-    "teams": [
-      { "name": "the-team" },
-      { "id": "4513b7ea-3b91-438f-b7e4-e3e54af9147c" }
+    "responders": [
+      {
+        "name": "team-name",
+        "type": "team"
+      },
+      {
+        "name": "some-schedule",
+        "type": "schedule"
+      }
     ],
-    "recipients": "the-recipients",
     "source": "alert-source",
     "overwrite_quiet_hours": true,
     "tags": ["sensu"]
@@ -94,16 +99,13 @@ the Sensu check name, _e.g._:
 web01 : check_mysql_access
 ```
 
-### Teams
+### Responders
 
-The OpsGenie _team_ alert field uses the values in the Sensu check configuration
+The OpsGenie _responders_ alert field uses the values in the Sensu check configuration
 if any, otherwise it uses the value from the handler configuration.
 
-### Recipients
-
-The OpsGenie _recipients_ alert field uses the values in the Sensu check
-configuration if any, otherwise it uses the value from the handler
-configuration.
+*Note*: This field replaces the _teams_ and _recipients_ fields, as indicated in the
+[OpsGenie API v2 Migration Guide](https://docs.opsgenie.com/docs/migration-guide-for-alert-rest-api#section-4-responders-field).
 
 ### Alias
 
