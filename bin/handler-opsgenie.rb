@@ -80,7 +80,7 @@ class Opsgenie < Sensu::Handler
   end
 
   def message
-    return @event['notification'] unless @event['notification'].nil?
+    return @event['check']['notification'] unless @event['check']['notification'].nil?
     return default_message if message_template.nil? || !File.exist?(message_template)
     custom_message
   rescue StandardError
